@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  .bodyContent-border{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 0.5rem solid rgb(53, 53, 53);
+  }
+
+  .bodyContent-items{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4px;
+    width: 66%;
+    color: white;
+    padding: 72px 0;
+    font-family: "Netflix sans";
+  }
+
+  .bodyContent-items img{
+    height: 432px;
+  }
+
+  .bodyContent-items h1{
+    font-size: 48px;
+    font-weight: 900;
+  }
+
+.bodyContent-items h3{
+    margin-top: 1rem;
+    font-size: 24px;
+}

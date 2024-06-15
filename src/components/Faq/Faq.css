@@ -1,0 +1,64 @@
+.faq-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: 0.5rem solid #353535;
+    padding: 72px 0;
+}
+
+.faqContent{
+    color:white;
+    font-family: "Netflix sans";
+    text-align: center;
+    max-width: 66%;
+    width: 100%;
+}
+
+.faqContent h1{
+    font-size: 48px;
+}
+
+.accordion{
+    margin-top: 1rem;
+}
+
+.accordion-items{
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 0 !important;
+}
+
+.accordion-items button, .accordion-items{
+    background-color: rgb(65,65,65) !important;
+}
+
+.accordion-items button{
+    height: 84px;
+    color: white !important;
+    font-size: 24px;
+    font-family: "Netflix sans";
+}
+
+.accordion-items button:focus{
+    box-shadow: none;
+    border-bottom: 1px solid black;
+}
+
+.acc-body{
+    color:white;
+    text-align: left;
+    font-size: 24px;
+    font-family: "Netflix sans";
+    padding: 24px;
+}
+
+
+.accordion-items button:hover{
+    background-color: rgb(80, 80, 80) !important;
+}
+
+.faq-signUp{
+    margin-top: 2.85rem;
+    color: white;
+}

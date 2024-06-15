@@ -1,0 +1,51 @@
+.footerContainer{
+    border-top: 0.5rem solid #353535;
+    padding: 72px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFFB3;
+    font-family: "Netflix sans";
+}
+
+.footerContent{
+    max-width: 66%;
+    width: 100%;
+}
+
+.question{
+    margin: 0 0 0.75rem 0.75rem;
+}
+
+.question span{
+    text-decoration: underline;
+}
+
+.footer-items{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.footer-items ul{
+    text-decoration: underline;
+}
+
+.footer-items ul li{
+    margin: 1rem 0 0 0.75rem;
+}
+
+.footerbtn{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 126px;
+    margin-left: 0.75rem;
+}
+
+.footer-end{
+    font-size: 14px;
+    margin-left: 0.75rem;
+}

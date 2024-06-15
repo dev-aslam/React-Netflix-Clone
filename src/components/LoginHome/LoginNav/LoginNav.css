@@ -1,0 +1,41 @@
+.navbar{
+    padding: 1rem 5rem;
+    z-index: 10;
+}
+
+.left-nav,
+.left-nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.left-nav ul{
+    margin-left: 1.5rem;
+}
+
+.left-nav ul li{
+    margin-right: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+.left-nav ul li:hover{
+    border-bottom: 2px solid white;
+}
+
+.signout-btn{
+    padding: 0.5rem 1rem;
+    background-color: #e50914;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+}
+
+.signout-btn:hover{
+    background-color: #e50914d3;
+}

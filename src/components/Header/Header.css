@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header-container {
+    @apply flex justify-between items-center;
+    height: 5.72rem;
+    width: 1280px;
+    margin: auto;
+    padding: 1.5rem 3rem;
+  }
+
+  .logo-container {
+    height: 40px;
+  }
+
+  .header-dropdown {
+    @apply flex justify-center items-center relative;
+    height: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.342);
+    border-radius: 0.25rem;
+  }
+
+  .header-dropdown img.languageIcon {
+    @apply absolute left-3;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .header-dropdown img.arrow {
+    @apply absolute right-3;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .header-dropdown select {
+    @apply text-white bg-transparent px-8;
+    height: 2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: "";
+  }
+
+  .header-dropdown select option {
+    color: black;
+  }
+
+  .header-btn-container {
+    @apply ml-6 flex justify-center items-center;
+  }
+
+  .header-btn {
+    @apply flex align-middle items-center px-4 py-1 font-semibold;
+    height: 32px;
+    background-color: rgb(193, 17, 25);
+    border-radius: 0.25rem;
+    color: white;
+  }
+
+  .header-btn:hover {
+    background-color: rgba(193, 17, 26, 0.836);
+    cursor: pointer;
+  }
+}
