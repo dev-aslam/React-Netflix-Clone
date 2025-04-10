@@ -1,26 +1,31 @@
-name: Build React App with Provenance
+name: Build React App with Witness Provenance
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write  # Required for requesting the GitHub OIDC token
-      contents: read   # Required for actions/checkout
-      attestations: write  # Required for writing attestations
+      id-token: write
+      contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install latest Witness
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Witness
         run: |
           bash <(curl -s https://raw.githubusercontent.com/in-toto/witness/main/install-witness.sh)
 
-      - name: Build React app with Witness
+      - name: Build with Witness using GitHub signer
         run: |
-          witness run --step build -o provenance.json -- npm ci && npm run build
+          witness run --step build -o provenance.json --signer github -- npm ci && npm run build
 
       - name: Upload Provenance File
         uses: actions/upload-artifact@v4
