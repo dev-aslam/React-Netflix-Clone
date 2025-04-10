@@ -23,9 +23,14 @@ jobs:
         run: |
           bash <(curl -s https://raw.githubusercontent.com/in-toto/witness/main/install-witness.sh)
 
-      - name: Build with Witness using GitHub signer
+      - name: Generate SLSA Provenance with Witness
         run: |
-          witness run --step build -o provenance.json --signer github -- npm ci && npm run build
+          witness run --step build -o provenance.json \
+            --signer-fulcio-url https://fulcio.sigstore.dev \
+            --signer-fulcio-oidc-client-id sigstore \
+            --signer-fulcio-oidc-issuer https://oauth2.sigstore.dev/auth \
+            -- npm ci && npm run build
+
 
       - name: Upload Provenance File
         uses: actions/upload-artifact@v4
