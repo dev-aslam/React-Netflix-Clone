@@ -1,7 +1,7 @@
 name: Build React App with Provenance
 
 on:
-  workflow_dispatch:  # You can manually trigger this
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   build:
@@ -26,6 +26,6 @@ jobs:
         run: npm run build
 
       - name: Generate SLSA Provenance
-        uses: github-early-access/generate-build-provenance@v1
+        uses: actions/attest-build-provenance@v1
         with:
-          subject-path: dist
+          subject-path: ./dist
