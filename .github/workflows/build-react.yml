@@ -9,7 +9,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-      attestations: write  # Required to generate provenance
+      attestations: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,3 +29,10 @@ jobs:
         uses: actions/attest-build-provenance@v1
         with:
           subject-path: ./dist
+          output-path: ./provenance.json
+
+      - name: Upload Provenance File
+        uses: actions/upload-artifact@v3
+        with:
+          name: provenance
+          path: ./provenance.json
