@@ -25,7 +25,7 @@ jobs:
 
       - name: Generate SLSA Provenance with Witness
         run: |
-          witness run --step build -o provenance.json \
+          witness run --step build -o provenance.json --attestor-slsa-export \
             --signer-fulcio-url https://fulcio.sigstore.dev \
             --signer-fulcio-oidc-client-id sigstore \
             --signer-fulcio-oidc-issuer https://oauth2.sigstore.dev/auth \
