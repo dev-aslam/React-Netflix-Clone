@@ -1,0 +1,31 @@
+name: Build React App with Provenance
+
+on:
+  workflow_dispatch:  # You can manually trigger this
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write  # Required to generate provenance
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        run: npm run build
+
+      - name: Generate SLSA Provenance
+        uses: github-early-access/generate-build-provenance@v1
+        with:
+          subject-path: dist
