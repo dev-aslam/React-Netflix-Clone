@@ -7,32 +7,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
-      contents: read
-      attestations: write
+      id-token: write  # Required for requesting the GitHub OIDC token
+      contents: read   # Required for actions/checkout
+      attestations: write  # Required for writing attestations
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - name: Install latest Witness
+        run: |
+          bash <(curl -s https://raw.githubusercontent.com/in-toto/witness/main/install-witness.sh)
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build React app
-        run: npm run build
-
-      - name: Generate SLSA Provenance
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: dist
-          output-path: provenance.json
+      - name: Build React app with Witness
+        run: |
+          witness run --step build -o provenance.json -- npm ci && npm run build
 
       - name: Upload Provenance File
         uses: actions/upload-artifact@v4
         with:
           name: provenance
-          path: ./provenance.json
+          path: provenance.json
